@@ -88,4 +88,51 @@ insert into estoque (id_estoque, id_carros, quantidade_estoque) values
 (888, 22345, 448),
 (999, 33345, 756);
 
-select * from clientes
+
+/**Escreva uma consulta para listar todos os carros disponíveis na loja.
+*/
+
+select * from carros where quantidade_estoque >0;
+
+/**Recupere os detalhes de um carro específico usando seu ID. 
+*/
+
+select * from carros where id_carros = 1;
+
+/**Mostre o nome, o CPF e o e-mail de todos os clientes cadastrados 
+*/
+
+select nome, cpf, email from clientes;
+
+/**Recupere os detalhes de uma compra específica, incluindo o nome do cliente, a data da compra e o total.
+*/
+
+select clientes.nome, compras.data_compra, compras.total_compra from clientes inner join compras on 
+clientes.id_clientes=compras.id_clientes where compras.id_clientes=54321;
+
+/**Liste os carros que estão em estoque, juntamente com a quantidade disponível.
+*/
+
+select nome, quantidade_estoque from carros where quantidade_estoque > 0;
+
+/**Crie uma consulta para mostrar os clientes que compraram um determinado carro (usando o ID do carro).
+*/
+
+select clientes.nome from clientes inner join compras on clientes.id_clientes=compras.id_clientes inner join carros_compra on
+compras.id_compras=carros_compra.id_compras where carros_compra.id_carros =22345;
+
+/**Exiba o total de cada compra, juntamente com os nomes dos carros comprados, para um cliente específico. 
+*/
+
+select compras.total_compra, carros.nome, clientes.nome from clientes inner join compras on clientes.id_clientes=compras.id_clientes inner join carros_compra on compras.id_compras=carros_compra.id_compras
+inner join carros on carros.id_carros=carros_compra.id_carros where compras.id_clientes = 54321;
+
+/** Desafio: Exibir o nome do cliente que fez a compra mais cara até o momento
+*/
+
+
+
+
+
+
+
