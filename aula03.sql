@@ -72,9 +72,9 @@ insert into clientes (id_clientes, nome, cpf, endereco, telefone, email) values
 
 insert into compras (id_compras, id_clientes, data_compra, total_compra) values 
 
-(111111, 54321, "02/09/2022", "R$80,000"),
-(222222, 55321, "12/09/2023", "R$60,000" ),
-(333333, 55543, "07/02/2022", "R$100,000");
+(111111, 54321, "02/09/2022", "R$80000"),
+(222222, 55321, "12/09/2023", "R$60000" ),
+(333333, 55543, "07/02/2022", "R$100000");
 
 insert into carros_Compra (id_carrosCompra, id_compras, id_carros, quantidade, subtotal) values 
 
@@ -129,6 +129,22 @@ inner join carros on carros.id_carros=carros_compra.id_carros where compras.id_c
 
 /** Desafio: Exibir o nome do cliente que fez a compra mais cara até o momento
 */
+
+SELECT * FROM carros WHERE categoria = 'Sedan' AND preco < 80000;
+
+SELECT * FROM carros WHERE categoria = 'Picape' OR preco > 60000;
+
+SELECT * FROM Carros WHERE NOT Categoria = 'Sedan';
+
+SELECT * FROM Carros WHERE descricao IS NULL;
+
+SELECT * FROM Carros WHERE descricao IS NOT NULL;
+
+SELECT * FROM Carros WHERE preco BETWEEN 20000 AND 40000;
+
+SELECT * FROM Carros WHERE Categoria IN ('Sedan', 'Picape');
+
+SELECT * FROM Carros WHERE Nome LIKE 'Duster%'
 
 
 
